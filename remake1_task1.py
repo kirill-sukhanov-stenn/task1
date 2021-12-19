@@ -62,7 +62,6 @@ class Task1AddGroup(unittest.TestCase):
 
     def tearDown(self):
         self.wd.quit()
-        self.assertEqual([], self.verificationErrors)
 
 if __name__ == "__main__":
     unittest.main()
