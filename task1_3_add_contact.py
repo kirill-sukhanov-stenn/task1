@@ -28,7 +28,9 @@ class Task1AddGroup(unittest.TestCase):
     def create_contact(self, wd, first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk",
                        last_name="hvbjbkjnlknm", nick="gfuhbkhjbkljnlm", title_contact="hfuygujhkl",
                        company_contact="giuhjnllk", contact_address="uyfuyighklnmlknkjbn", home_contact="gfhgghjkh",
-                       mobile_phone="456778789789"):
+                       mobile_phone="456778789789", work_phone="645768", fax_phone="46756879890",
+                       email_com="lvcgjhbjkbnm,n@bvhfgh.com", email2="yghjhjklk@gvhjbhj.com",
+                       home_page="gfjhbgkjnkjln"):
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -59,19 +61,19 @@ class Task1AddGroup(unittest.TestCase):
         wd.find_element_by_name("mobile").send_keys(mobile_phone)
         wd.find_element_by_name("work").click()
         wd.find_element_by_name("work").clear()
-        wd.find_element_by_name("work").send_keys("645768")
+        wd.find_element_by_name("work").send_keys(work_phone)
         wd.find_element_by_name("fax").click()
         wd.find_element_by_name("fax").clear()
-        wd.find_element_by_name("fax").send_keys("46756879890")
+        wd.find_element_by_name("fax").send_keys(fax_phone)
         wd.find_element_by_name("email").click()
         wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys("lvcgjhbjkbnm,n@bvhfgh.com")
+        wd.find_element_by_name("email").send_keys(email_com)
         wd.find_element_by_name("email2").click()
         wd.find_element_by_name("email2").clear()
-        wd.find_element_by_name("email2").send_keys("yghjhjklk@gvhjbhj.com")
+        wd.find_element_by_name("email2").send_keys(email2)
         wd.find_element_by_name("homepage").click()
         wd.find_element_by_name("homepage").clear()
-        wd.find_element_by_name("homepage").send_keys("gfjhbgkjnkjln")
+        wd.find_element_by_name("homepage").send_keys(home_page)
         wd.find_element_by_name("bday").click()
         Select(wd.find_element_by_name("bday")).select_by_visible_text("14")
         wd.find_element_by_xpath("//option[@value='14']").click()
