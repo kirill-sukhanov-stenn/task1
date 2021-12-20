@@ -10,16 +10,22 @@ class Task1AddGroup(unittest.TestCase):
 
     def test_task1_add_group(self):
         wd = self.wd
-        # open home page
-        wd.get("http://localhost/addressbook/addressbook/")
-        # login
-        wd.find_element_by_name("user").send_keys("admin")
-        wd.find_element_by_name("pass").click()
-        wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys("secret")
-        wd.find_element_by_xpath("//input[@value='Login']").click()
-        # init new contact creation
-        wd.find_element_by_link_text("add new").click()
+        self.open_home_page(wd)
+        self.login(wd)
+        self.open_new_contact(wd)
+        self.create_contact(wd)
+        self.return_to_home(wd)
+        self.logout(wd)
+
+    def logout(self, wd):
+        # logout
+        wd.find_element_by_link_text("Logout").click()
+
+    def return_to_home(self, wd):
+        # return to home page
+        wd.find_element_by_link_text("home").click()
+
+    def create_contact(self, wd):
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -92,11 +98,22 @@ class Task1AddGroup(unittest.TestCase):
         wd.find_element_by_name("notes").send_keys("fduygihjhbjlnljknmn")
         # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
-        # return to home page
-        wd.find_element_by_link_text("home").click()
-        # logout
-        wd.find_element_by_link_text("Logout").click()
-    
+
+    def open_new_contact(self, wd):
+        # open new contact creation
+        wd.find_element_by_link_text("add new").click()
+
+    def login(self, wd):
+        # login
+        wd.find_element_by_name("user").send_keys("admin")
+        wd.find_element_by_name("pass").click()
+        wd.find_element_by_name("pass").clear()
+        wd.find_element_by_name("pass").send_keys("secret")
+        wd.find_element_by_xpath("//input[@value='Login']").click()
+
+    def open_home_page(self, wd):
+        # open home page
+        wd.get("http://localhost/addressbook/addressbook/")
 
     def tearDown(self):
         self.wd.quit()
