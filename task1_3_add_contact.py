@@ -13,7 +13,14 @@ class Task1AddGroup(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.open_new_contact(wd)
-        self.create_contact(wd)
+        self.create_contact(wd, first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk", last_name="hvbjbkjnlknm",
+                            nick="gfuhbkhjbkljnlm", title_contact="hfuygujhkl",
+                            company_contact="giuhjnllk", contact_address="uyfuyighklnmlknkjbn", home_contact="gfhgghjkh",
+                            mobile_phone="456778789789", work_phone="645768", fax_phone="46756879890",
+                            email_com="lvcgjhbjkbnm,n@bvhfgh.com", email2="yghjhjklk@gvhjbhj.com", home_page="gfjhbgkjnkjln",
+                            b_day="14", b_month="October",
+                            b_year="1234", a_day="17", a_month="November", a_year="1989", address_2="tdcghvbkhjbnkjn",
+                            phone_2="jjgjhknkjnm,", notes_contact="fduygihjhbjlnljknmn")
         self.return_to_home(wd)
         self.logout(wd)
 
@@ -25,14 +32,9 @@ class Task1AddGroup(unittest.TestCase):
         # return to home page
         wd.find_element_by_link_text("home").click()
 
-    def create_contact(self, wd, first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk",
-                       last_name="hvbjbkjnlknm", nick="gfuhbkhjbkljnlm", title_contact="hfuygujhkl",
-                       company_contact="giuhjnllk", contact_address="uyfuyighklnmlknkjbn", home_contact="gfhgghjkh",
-                       mobile_phone="456778789789", work_phone="645768", fax_phone="46756879890",
-                       email_com="lvcgjhbjkbnm,n@bvhfgh.com", email2="yghjhjklk@gvhjbhj.com",
-                       home_page="gfjhbgkjnkjln", b_day="14", b_month="October", b_year="1234", a_day="17",
-                       a_month="November", a_year="1989", address_2="tdcghvbkhjbnkjn", phone_2="jjgjhknkjnm,",
-                       notes_contact="fduygihjhbjlnljknmn"):
+    def create_contact(self, wd, first_name, middle_name, last_name, nick, title_contact, company_contact,
+                       contact_address, home_contact, mobile_phone, work_phone, fax_phone, email_com, email2, home_page,
+                       b_day, b_month, b_year, a_day, a_month, a_year, address_2, phone_2, notes_contact):
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
