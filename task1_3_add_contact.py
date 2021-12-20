@@ -25,7 +25,10 @@ class Task1AddGroup(unittest.TestCase):
         # return to home page
         wd.find_element_by_link_text("home").click()
 
-    def create_contact(self, wd, first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk"):
+    def create_contact(self, wd, first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk",
+                       last_name="hvbjbkjnlknm", nick="gfuhbkhjbkljnlm", title_contact="hfuygujhkl",
+                       company_contact="giuhjnllk", contact_address="uyfuyighklnmlknkjbn", home_contact="gfhgghjkh",
+                       mobile_phone="456778789789"):
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -35,25 +38,25 @@ class Task1AddGroup(unittest.TestCase):
         wd.find_element_by_name("middlename").send_keys(middle_name)
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys("hvbjbkjnlknm")
+        wd.find_element_by_name("lastname").send_keys(last_name)
         wd.find_element_by_name("nickname").click()
         wd.find_element_by_name("nickname").clear()
-        wd.find_element_by_name("nickname").send_keys("gfuhbkhjbkljnlm")
+        wd.find_element_by_name("nickname").send_keys(nick)
         wd.find_element_by_name("title").click()
         wd.find_element_by_name("title").clear()
-        wd.find_element_by_name("title").send_keys("hfuygujhkl")
+        wd.find_element_by_name("title").send_keys(title_contact)
         wd.find_element_by_name("company").click()
         wd.find_element_by_name("company").clear()
-        wd.find_element_by_name("company").send_keys("giuhjnllk")
+        wd.find_element_by_name("company").send_keys(company_contact)
         wd.find_element_by_name("address").click()
         wd.find_element_by_name("address").clear()
-        wd.find_element_by_name("address").send_keys("uyfuyighklnmlknkjbn")
+        wd.find_element_by_name("address").send_keys(contact_address)
         wd.find_element_by_name("home").click()
         wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys("gfhgghjkh")
+        wd.find_element_by_name("home").send_keys(home_contact)
         wd.find_element_by_name("mobile").click()
         wd.find_element_by_name("mobile").clear()
-        wd.find_element_by_name("mobile").send_keys("456778789789")
+        wd.find_element_by_name("mobile").send_keys(mobile_phone)
         wd.find_element_by_name("work").click()
         wd.find_element_by_name("work").clear()
         wd.find_element_by_name("work").send_keys("645768")
