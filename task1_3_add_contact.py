@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
 import unittest
 
 class Task1AddGroup(unittest.TestCase):
@@ -14,13 +10,17 @@ class Task1AddGroup(unittest.TestCase):
 
     def test_task1_add_group(self):
         wd = self.wd
+        # open home page
         wd.get("http://localhost/addressbook/addressbook/")
+        # login
         wd.find_element_by_name("user").send_keys("admin")
         wd.find_element_by_name("pass").click()
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys("secret")
         wd.find_element_by_xpath("//input[@value='Login']").click()
+        # init new contact creation
         wd.find_element_by_link_text("add new").click()
+        # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys("trrdytfyuhgjkbhk")
@@ -90,8 +90,11 @@ class Task1AddGroup(unittest.TestCase):
         wd.find_element_by_name("notes").click()
         wd.find_element_by_name("notes").clear()
         wd.find_element_by_name("notes").send_keys("fduygihjhbjlnljknmn")
+        # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        # return to home page
         wd.find_element_by_link_text("home").click()
+        # logout
         wd.find_element_by_link_text("Logout").click()
     
 
