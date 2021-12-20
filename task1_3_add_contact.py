@@ -30,7 +30,8 @@ class Task1AddGroup(unittest.TestCase):
                        company_contact="giuhjnllk", contact_address="uyfuyighklnmlknkjbn", home_contact="gfhgghjkh",
                        mobile_phone="456778789789", work_phone="645768", fax_phone="46756879890",
                        email_com="lvcgjhbjkbnm,n@bvhfgh.com", email2="yghjhjklk@gvhjbhj.com",
-                       home_page="gfjhbgkjnkjln", b_day="14", b_month="October", b_year="1234", a_day="17"):
+                       home_page="gfjhbgkjnkjln", b_day="14", b_month="October", b_year="1234", a_day="17",
+                       a_month="November", a_year="1989", address_2="tdcghvbkhjbnkjn", phone_2="jjgjhknkjnm,"):
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -87,17 +88,17 @@ class Task1AddGroup(unittest.TestCase):
         Select(wd.find_element_by_name("aday")).select_by_visible_text(a_day)
         wd.find_element_by_xpath("//div[@id='content']/form/select[3]/option[19]").click()
         wd.find_element_by_name("amonth").click()
-        Select(wd.find_element_by_name("amonth")).select_by_visible_text("November")
+        Select(wd.find_element_by_name("amonth")).select_by_visible_text(a_month)
         wd.find_element_by_xpath("//div[@id='content']/form/select[4]/option[12]").click()
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").clear()
-        wd.find_element_by_name("ayear").send_keys("1988")
+        wd.find_element_by_name("ayear").send_keys(a_year)
         wd.find_element_by_name("address2").click()
         wd.find_element_by_name("address2").clear()
-        wd.find_element_by_name("address2").send_keys("tdcghvbkhjbnkjn")
+        wd.find_element_by_name("address2").send_keys(address_2)
         wd.find_element_by_name("phone2").click()
         wd.find_element_by_name("phone2").clear()
-        wd.find_element_by_name("phone2").send_keys("jjgjhknkjnm,")
+        wd.find_element_by_name("phone2").send_keys(phone_2)
         wd.find_element_by_name("notes").click()
         wd.find_element_by_name("notes").clear()
         wd.find_element_by_name("notes").send_keys("fduygihjhbjlnljknmn")
