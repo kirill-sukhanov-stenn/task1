@@ -24,6 +24,24 @@ class Task1AddGroup(unittest.TestCase):
         self.return_to_home(wd)
         self.logout(wd)
 
+    def test_task1_add_empty_group(self):
+        wd = self.wd
+        self.open_home_page(wd)
+        self.login(wd, username="admin", password="secret")
+        self.open_new_contact(wd)
+        self.create_contact(wd, first_name="", middle_name="", last_name="",
+                            nick="", title_contact="",
+                            company_contact="", contact_address="",
+                            home_contact="",
+                            mobile_phone="", work_phone="", fax_phone="",
+                            email_com="", email2="",
+                            home_page="",
+                            b_day="", b_month="",
+                            b_year="", a_day="", a_month="", a_year="", address_2="",
+                            phone_2=",", notes_contact="")
+        self.return_to_home(wd)
+        self.logout(wd)
+
     def logout(self, wd):
         # logout
         wd.find_element_by_link_text("Logout").click()
