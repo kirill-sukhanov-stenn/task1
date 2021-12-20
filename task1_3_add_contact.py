@@ -30,7 +30,7 @@ class Task1AddGroup(unittest.TestCase):
                        company_contact="giuhjnllk", contact_address="uyfuyighklnmlknkjbn", home_contact="gfhgghjkh",
                        mobile_phone="456778789789", work_phone="645768", fax_phone="46756879890",
                        email_com="lvcgjhbjkbnm,n@bvhfgh.com", email2="yghjhjklk@gvhjbhj.com",
-                       home_page="gfjhbgkjnkjln"):
+                       home_page="gfjhbgkjnkjln", b_day="14", b_month="October", b_year="1234", a_day="17"):
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -75,16 +75,16 @@ class Task1AddGroup(unittest.TestCase):
         wd.find_element_by_name("homepage").clear()
         wd.find_element_by_name("homepage").send_keys(home_page)
         wd.find_element_by_name("bday").click()
-        Select(wd.find_element_by_name("bday")).select_by_visible_text("14")
-        wd.find_element_by_xpath("//option[@value='14']").click()
+        Select(wd.find_element_by_name("bday")).select_by_visible_text(b_day)
+        wd.find_element_by_xpath("//option[@value=b_day]").click()
         wd.find_element_by_name("bmonth").click()
-        Select(wd.find_element_by_name("bmonth")).select_by_visible_text("October")
-        wd.find_element_by_xpath("//option[@value='October']").click()
+        Select(wd.find_element_by_name("bmonth")).select_by_visible_text(b_month)
+        wd.find_element_by_xpath("//option[@value=b_month]").click()
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").clear()
-        wd.find_element_by_name("byear").send_keys("1234")
+        wd.find_element_by_name("byear").send_keys(b_year)
         wd.find_element_by_name("aday").click()
-        Select(wd.find_element_by_name("aday")).select_by_visible_text("17")
+        Select(wd.find_element_by_name("aday")).select_by_visible_text(a_day)
         wd.find_element_by_xpath("//div[@id='content']/form/select[3]/option[19]").click()
         wd.find_element_by_name("amonth").click()
         Select(wd.find_element_by_name("amonth")).select_by_visible_text("November")
