@@ -11,7 +11,7 @@ class Task1AddGroup(unittest.TestCase):
     def test_task1_add_group(self):
         wd = self.wd
         self.open_home_page(wd)
-        self.login(wd)
+        self.login(wd, username="admin", password="secret")
         self.open_new_contact(wd)
         self.create_contact(wd)
         self.return_to_home(wd)
@@ -25,14 +25,14 @@ class Task1AddGroup(unittest.TestCase):
         # return to home page
         wd.find_element_by_link_text("home").click()
 
-    def create_contact(self, wd):
+    def create_contact(self, wd, first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk"):
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys("trrdytfyuhgjkbhk")
+        wd.find_element_by_name("firstname").send_keys(first_name)
         wd.find_element_by_name("middlename").click()
         wd.find_element_by_name("middlename").clear()
-        wd.find_element_by_name("middlename").send_keys("gvjhbkjbnjknlk")
+        wd.find_element_by_name("middlename").send_keys(middle_name)
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
         wd.find_element_by_name("lastname").send_keys("hvbjbkjnlknm")
@@ -103,12 +103,12 @@ class Task1AddGroup(unittest.TestCase):
         # open new contact creation
         wd.find_element_by_link_text("add new").click()
 
-    def login(self, wd):
+    def login(self, wd, username, password):
         # login
-        wd.find_element_by_name("user").send_keys("admin")
+        wd.find_element_by_name("user").send_keys(username)
         wd.find_element_by_name("pass").click()
         wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys("secret")
+        wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_xpath("//input[@value='Login']").click()
 
     def open_home_page(self, wd):
