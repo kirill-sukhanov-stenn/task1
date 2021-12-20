@@ -36,8 +36,8 @@ class Task1AddGroup(unittest.TestCase):
                             mobile_phone="", work_phone="", fax_phone="",
                             email_com="", email2="",
                             home_page="",
-                            b_day="", b_month="",
-                            b_year="", a_day="", a_month="", a_year="", address_2="",
+                            b_day="12", b_month="October",
+                            b_year="1989", a_day="12", a_month="March", a_year="1999", address_2="",
                             phone_2=",", notes_contact="")
         self.return_to_home(wd)
         self.logout(wd)
