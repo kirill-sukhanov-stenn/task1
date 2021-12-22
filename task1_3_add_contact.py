@@ -4,12 +4,12 @@ from selenium.webdriver.support.ui import Select
 import unittest
 from contact import Contact
 
-class Task1AddGroup(unittest.TestCase):
+class Task1AddContact(unittest.TestCase):
     def setUp(self):
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(30)
 
-    def test_task1_add_group(self):
+    def test_task1_add_contact(self):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
@@ -25,7 +25,7 @@ class Task1AddGroup(unittest.TestCase):
         self.return_to_home(wd)
         self.logout(wd)
 
-    def test_task1_add_empty_group(self):
+    def test_task1_add_empty_contact(self):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
