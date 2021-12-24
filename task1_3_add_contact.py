@@ -10,11 +10,10 @@ class Task1AddContact(unittest.TestCase):
         self.wd.implicitly_wait(30)
 
     def test_task1_add_contact(self):
-        wd = self.wd
-        self.open_home_page(wd)
-        self.login(wd, username="admin", password="secret")
-        self.open_new_contact(wd)
-        self.create_contact(wd, Contact(first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk", last_name="hvbjbkjnlknm",
+        self.open_home_page()
+        self.login(username="admin", password="secret")
+        self.open_new_contact()
+        self.create_contact(Contact(first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk", last_name="hvbjbkjnlknm",
                             nick="gfuhbkhjbkljnlm", title_contact="hfuygujhkl",
                             company_contact="giuhjnllk", contact_address="uyfuyighklnmlknkjbn", home_contact="gfhgghjkh",
                             mobile_phone="456778789789", work_phone="645768", fax_phone="46756879890",
@@ -22,15 +21,14 @@ class Task1AddContact(unittest.TestCase):
                             b_day="14", b_month="October",
                             b_year="1234", a_day="17", a_month="November", a_year="1989", address_2="tdcghvbkhjbnkjn",
                             phone_2="jjgjhknkjnm,", notes_contact="fduygihjhbjlnljknmn"))
-        self.return_to_home(wd)
-        self.logout(wd)
+        self.return_to_home()
+        self.logout()
 
     def test_task1_add_empty_contact(self):
-        wd = self.wd
-        self.open_home_page(wd)
-        self.login(wd, username="admin", password="secret")
-        self.open_new_contact(wd)
-        self.create_contact(wd, Contact(first_name="", middle_name="", last_name="",
+        self.open_home_page()
+        self.login(username="admin", password="secret")
+        self.open_new_contact()
+        self.create_contact(Contact(first_name="", middle_name="", last_name="",
                             nick="", title_contact="",
                             company_contact="", contact_address="",
                             home_contact="",
@@ -40,19 +38,22 @@ class Task1AddContact(unittest.TestCase):
                             b_day="12", b_month="October",
                             b_year="1989", a_day="12", a_month="March", a_year="1999", address_2="",
                             phone_2=",", notes_contact=""))
-        self.return_to_home(wd)
-        self.logout(wd)
+        self.return_to_home()
+        self.logout()
 
-    def logout(self, wd):
+    def logout(self):
         # logout
+        wd = self.wd
         wd.find_element_by_link_text("Logout").click()
 
-    def return_to_home(self, wd):
+    def return_to_home(self):
         # return to home page
+        wd = self.wd
         wd.find_element_by_link_text("home").click()
 
-    def create_contact(self, wd, contact):
+    def create_contact(self, contact):
         # fill contact form
+        wd = self.wd
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys(contact.first_name)
@@ -121,20 +122,23 @@ class Task1AddContact(unittest.TestCase):
         # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
 
-    def open_new_contact(self, wd):
+    def open_new_contact(self):
         # open new contact creation
+        wd = self.wd
         wd.find_element_by_link_text("add new").click()
 
-    def login(self, wd, username, password):
+    def login(self, username, password):
         # login
+        wd = self.wd
         wd.find_element_by_name("user").send_keys(username)
         wd.find_element_by_name("pass").click()
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_xpath("//input[@value='Login']").click()
 
-    def open_home_page(self, wd):
+    def open_home_page(self):
         # open home page
+        wd = self.wd
         wd.get("http://localhost/addressbook/addressbook/")
 
     def tearDown(self):
