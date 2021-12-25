@@ -12,7 +12,7 @@ def app(request):
 
 
 def test_task1_add_contact(app):
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.create_contact(Contact(first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk", last_name="hvbjbkjnlknm",
                                nick="gfuhbkhjbkljnlm", title_contact="hfuygujhkl",
                                company_contact="giuhjnllk", contact_address="uyfuyighklnmlknkjbn",
@@ -24,11 +24,11 @@ def test_task1_add_contact(app):
                                b_year="1234", a_day="17", a_month="November", a_year="1989",
                                address_2="tdcghvbkhjbnkjn",
                                phone_2="jjgjhknkjnm,", notes_contact="fduygihjhbjlnljknmn"))
-    app.logout()
+    app.session.logout()
 
 
 def test_task1_add_empty_contact(app):
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.create_contact(Contact(first_name="", middle_name="", last_name="",
                                nick="", title_contact="",
                                company_contact="", contact_address="",
@@ -39,4 +39,4 @@ def test_task1_add_empty_contact(app):
                                b_day="12", b_month="October",
                                b_year="1989", a_day="12", a_month="March", a_year="1999", address_2="",
                                phone_2=",", notes_contact=""))
-    app.logout()
+    app.session.logout()
