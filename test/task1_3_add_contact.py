@@ -13,7 +13,7 @@ def app(request):
 
 def test_task1_add_contact(app):
     app.session.login(username="admin", password="secret")
-    app.create_contact(Contact(first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk", last_name="hvbjbkjnlknm",
+    app.contact.create(Contact(first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk", last_name="hvbjbkjnlknm",
                                nick="gfuhbkhjbkljnlm", title_contact="hfuygujhkl",
                                company_contact="giuhjnllk", contact_address="uyfuyighklnmlknkjbn",
                                home_contact="gfhgghjkh",
@@ -29,7 +29,7 @@ def test_task1_add_contact(app):
 
 def test_task1_add_empty_contact(app):
     app.session.login(username="admin", password="secret")
-    app.create_contact(Contact(first_name="", middle_name="", last_name="",
+    app.contact.create(Contact(first_name="", middle_name="", last_name="",
                                nick="", title_contact="",
                                company_contact="", contact_address="",
                                home_contact="",
