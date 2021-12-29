@@ -1,7 +1,7 @@
 from model.contact import Contact
 
 
-def test_delete_first_contact(app):
+def test_update_first_contact(app):
     app.session.login(username="admin", password="secret")
     app.contact.update_first_contact(Contact(first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk", last_name="hvbjbkjnlknm",
                                nick="gfuhbkhjbkljnlm", title_contact="hfuygujhkl",
