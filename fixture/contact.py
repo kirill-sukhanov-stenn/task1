@@ -156,6 +156,21 @@ class ContactHelper:
         wd.get("http://localhost/addressbook/addressbook/")
         self.return_to_home()
 
+    def test_vCard(self):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//img[@alt='vCard']").click()
+        wd.get("http://localhost/addressbook/addressbook/")
+        self.return_to_home()
+
+    def test_details_modify(self):
+        wd = self.app.wd
+        wd.wd.find_element_by_xpath("//img[@alt='Details']").click()
+        wd.find_element_by_name("modifiy").click()
+        wd.find_element_by_name("company").click()
+        wd.find_element_by_name("company").clear()
+        wd.find_element_by_name("update").click()
+        self.return_to_home()
+
     def return_to_home(self):
         # return to home page
         wd = self.app.wd
