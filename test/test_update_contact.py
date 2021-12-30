@@ -15,3 +15,13 @@ def test_update_first_contact(app):
                                address_2="tdcghvbkhjbnkjn",
                                phone_2="jjgjhknkjnm,", notes_contact="fduygihjhbjlnljk"))
     app.session.logout()
+
+def test_details(app):
+    app.session.login(username="admin", password="secret")
+    app.contact.test_details()
+    app.session.logout()
+
+def test_print_details(app):
+    app.session.login(username="admin", password="secret")
+    app.contact.test_print_details()
+    app.session.logout()
