@@ -13,7 +13,8 @@ def test_update_first_contact(app):
                                b_day="12", b_month="October",
                                b_year="1989", a_day="12", a_month="March", a_year="1999", address_2="",
                                phone_2=",", notes_contact=""))
-    app.contact.update_first_contact(Contact(first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk", last_name="hvbjbkjnlknm",
+    old_contacts = app.contact.get_contact_list()
+    contact = Contact(first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk", last_name="hvbjbkjnlknm",
                 nick="gfuhbkhjbkljnlm", title_contact="hfuygujhkl",
                 company_contact="giuhjnllk", contact_address="uyfuyighklnmlknkjbn",
                 home_contact="gfhgghjkh",
@@ -23,4 +24,11 @@ def test_update_first_contact(app):
                 b_day="14", b_month="October",
                 b_year="1234", a_day="17", a_month="November", a_year="1989",
                 address_2="tdcghvbkhjbnkjn",
-                phone_2="jjgjhknkjnm,", notes_contact="fduygihjhbjlnljk"))
+                phone_2="jjgjhknkjnm,", notes_contact="fduygihjhbjlnljk")
+    contact.id = old_contacts[0].id
+    app.contact.update_first_contact(contact)
+    new_contacts = app.contact.get_contact_list()
+    assert len(old_contacts) == len(new_contacts)
+    old_contacts[0] = contact
+    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+
