@@ -4,17 +4,17 @@ from model.contact import Contact
 
 def test_task1_add_contact(app):
     old_contacts = app.contact.get_contact_list()
-    contact = Contact(first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk", last_name="hvbjbkjnlknm",
-                      nick="gfuhbkhjbkljnlm", title_contact="hfuygujhkl",
-                      company_contact="giuhjnllk", contact_address="uyfuyighklnmlknkjbn",
-                      home_contact="gfhgghjkh",
+    contact = Contact(first_name="Mikle", middle_name="Ivanovich", last_name="Ivanov",
+                      nick="Misha", title_contact="Mick",
+                      company_contact="giuhjnllk", contact_address="Moscow 111",
+                      home_contact="999 999 9999",
                       mobile_phone="456778789789", work_phone="645768", fax_phone="46756879890",
                       email_com="lvcgjhbjkbnm,n@bvhfgh.com", email2="yghjhjklk@gvhjbhj.com",
                       home_page="gfjhbgkjnkjln",
                       b_day="14", b_month="October",
                       b_year="1234", a_day="17", a_month="November", a_year="1989",
                       address_2="tdcghvbkhjbnkjn",
-                      phone_2="jjgjhknkjnm,", notes_contact="fduygihjhbjlnljknmn")
+                      phone_2="123456789 ", notes_contact="fduygihjhbjlnljknmn")
     app.contact.create(contact)
     assert len(old_contacts) + 1 == app.contact.count()
     new_contacts = app.contact.get_contact_list()

@@ -1,5 +1,6 @@
 from selenium.webdriver.support.select import Select
 from model.contact import Contact
+import re
 
 
 class ContactHelper:
@@ -207,5 +208,47 @@ class ContactHelper:
                 firstname = cells[2].text
                 lastname = cells[1].text
                 id = cells[0].find_element_by_name("selected[]").get_attribute("value")
-                self.contact_cache.append(Contact(first_name=firstname, last_name=lastname, id=id))
+                address = cells[3].text
+                all_phones = cells[5].text
+                all_emails = cells[4].text
+                self.contact_cache.append(Contact(first_name=firstname, last_name=lastname, id=id,
+                                                  all_phones_from_home_page= all_phones, contact_address=address,
+                                                  all_emails_from_home_page=all_emails))
         return list(self.contact_cache)
+
+    def get_contact_info_from_edit_page(self, index):
+        wd = self.app.wd
+        self.return_to_home()
+        self.select_contact_by_index(index)
+        first_name = wd.find_element_by_name("firstname").get_attribute("value")
+        last_name = wd.find_element_by_name("lastname").get_attribute("value")
+        id = wd.find_element_by_name("id").get_attribute("value")
+        home_contact = wd.find_element_by_name("home").get_attribute("value")
+        mobile_phone = wd.find_element_by_name("mobile").get_attribute("value")
+        work_phone = wd.find_element_by_name("work").get_attribute("value")
+        phone_2 = wd.find_element_by_name("phone2").get_attribute("value")
+        address = wd.find_element_by_name("address").text
+        email = wd.find_element_by_name("email").get_attribute("value")
+        email2 = wd.find_element_by_name("email2").get_attribute("value")
+        email3 = wd.find_element_by_name("email3").get_attribute("value")
+        return Contact(first_name=first_name, last_name=last_name, id=id, home_contact=home_contact,
+                       mobile_phone=mobile_phone, work_phone=work_phone, phone_2=phone_2, contact_address=address,
+                       email_com=email, email2=email2, email3=email3)
+
+    def open_contact_viev_by_index2(self, index):
+        wd = self.app.wd
+        wd.find_elements_by_xpath("//img[@alt='Details']")[index].click()
+
+    def get_contact_from_view_page(self,index):
+        wd = self.app.wd
+        self.return_to_home()
+        self.open_contact_viev_by_index2(index)
+        text = wd.find_element_by_id("content").text
+        home_contact = re.search("H: (.*)", text).group(1)
+        mobile_phone = re.search("M: (.*)", text).group(1)
+        work_phone = re.search("W: (.*)", text).group(1)
+        phone_2 = re.search("P: (.*)", text).group(1)
+        return Contact(home_contact=home_contact,
+                       mobile_phone=mobile_phone, work_phone=work_phone, phone_2=phone_2)
+
+
