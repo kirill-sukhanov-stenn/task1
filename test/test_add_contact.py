@@ -10,7 +10,7 @@ calendar_month = random.choice(["January", "February", "March", "April", "May", 
                                 "October", "November", "December"])
 
 def random_string(prefix, maxlen):
-    symbols = string.ascii_letters + string.digits + " "*10
+    symbols = string.ascii_letters + string.digits + string.punctuation + " "*10
     return prefix + "".join([random.choice(symbols) for i in range(random.randrange(maxlen))])
 
 
@@ -35,7 +35,7 @@ testdata = [Contact(first_name="", middle_name="", last_name="",
             b_year=calendar_year, a_day=calendar_date, a_month=calendar_month, a_year=calendar_year,
             address_2=random_string("address2", 15),
             phone_2=random_string("phone2", 15), notes_contact=random_string("notes", 45))
-    for i in range(1)
+    for i in range(5)
 
 
 ]
