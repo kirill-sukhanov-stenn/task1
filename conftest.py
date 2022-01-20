@@ -3,14 +3,12 @@ from fixture.application import Application
 
 fixture = None
 
-
 @pytest.fixture
 def app(request):
     global fixture
     browser = request.config.getoption("--browser")
     base_url = request.config.getoption("--base_url")
     if fixture is None:
-
         fixture = Application(browser=browser, base_url=base_url)
     else:
         if not fixture.is_valid():
