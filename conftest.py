@@ -13,7 +13,7 @@ def app(request):
         fixture = Application(browser=browser, base_url=base_url, base_password=base_password)
     else:
         if not fixture.is_valid():
-            fixture = Application(browser=browser, base_url=base_url)
+            fixture = Application(browser=browser, base_url=base_url, base_password=base_password)
     fixture.session.ensure_login(username="admin", password=base_password)
     return fixture
 
