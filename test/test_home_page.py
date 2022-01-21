@@ -23,18 +23,17 @@ def merge_phones_like_on_home_page(contact):
                                                             contact.phone_2]))))
 
 def firstname_like_on_home_page(contact):
-    return "\n".join(filter(lambda x: x is not None, [contact.first_name]))
+    return contact.first_name
 
 def lastname_like_on_home_page(contact):
-    return "\n".join(filter(lambda x: x is not None, [contact.last_name]))
+    return contact.last_name
 
 def address_like_on_home_page(contact):
-    return "\n".join(filter(lambda x: x is not None, [contact.contact_address]))
+    return contact.contact_address
 
 
 def merge_emails_like_on_home_page(contact):
-        return "\n".join(filter(lambda x: x != "",
-                            map(lambda x: clear(x), filter(lambda x: x is not None, [contact.email_com,
-                                                                contact.email2, contact.email3]))))
+        return "\n".join(filter(lambda x: x != "", filter(lambda x: x is not None, [contact.email_com,
+                                                                contact.email2, contact.email3])))
 
 
