@@ -1,7 +1,4 @@
 from model.contact import Contact
-import random
-import string
-
 
 testdata = [Contact(first_name="1", middle_name="1", last_name="1",
                        nick="1", title_contact="1",
