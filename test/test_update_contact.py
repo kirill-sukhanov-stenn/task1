@@ -2,8 +2,9 @@ from model.contact import Contact
 from random import randrange
 
 
-def test_update_first_contact(app):
-    if app.contact.count()==0:
+def test_update_first_contact(app, json_contacts):
+    contact = json_contacts
+    if app.contact.count() == 0:
         app.contact.create(Contact(first_name="test", middle_name="", last_name="",
                                nick="", title_contact="",
                                company_contact="", contact_address="",
@@ -16,17 +17,6 @@ def test_update_first_contact(app):
                                phone_2=",", notes_contact=""))
     old_contacts = app.contact.get_contact_list()
     index = randrange(len(old_contacts))
-    contact = Contact(first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk", last_name="hvbjbkjnlknm",
-                nick="gfuhbkhjbkljnlm", title_contact="hfuygujhkl",
-                company_contact="giuhjnllk", contact_address="uyfuyighklnmlknkjbn",
-                home_contact="gfhgghjkh",
-                mobile_phone="456778789789", work_phone="645768", fax_phone="46756879890",
-                email_com="lvcgjhbjkbnm,n@bvhfgh.com", email2="yghjhjklk@gvhjbhj.com",
-                home_page="gfjhbgkjnkjln",
-                b_day="14", b_month="October",
-                b_year="1234", a_day="17", a_month="November", a_year="1989",
-                address_2="tdcghvbkhjbnkjn",
-                phone_2="jjgjhknkjnm,", notes_contact="fduygihjhbjlnljk")
     contact.id = old_contacts[index].id
     app.contact.update_contact_by_index(index, contact)
     new_contacts = app.contact.get_contact_list()
