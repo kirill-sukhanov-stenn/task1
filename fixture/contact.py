@@ -8,6 +8,7 @@ class ContactHelper:
     def __init__(self, app):
         self.app = app
 
+
     def open_new_contact(self):
         # open new contact creation
         wd = self.app.wd
@@ -164,23 +165,23 @@ class ContactHelper:
         wd.find_element_by_xpath("//img[@alt='Details']").click()
         self.return_to_home()
 
-    def test_print_details(self):
+    def test_print_details(self, target):
         wd = self.app.wd
         wd.find_element_by_xpath("//img[@alt='Details']").click()
         wd.find_element_by_name("print").click()
-        wd.get("http://localhost/addressbook/addressbook/")
+        wd.get(target["base_url"])
         self.return_to_home()
 
-    def test_vCard(self):
+    def test_vCard(self, target):
         wd = self.app.wd
         wd.find_element_by_xpath("//img[@alt='vCard']").click()
-        wd.get("http://localhost/addressbook/addressbook/")
+        wd.get(target["base_url"])
         self.return_to_home()
 
     def test_details_modify(self):
         wd = self.app.wd
         wd.wd.find_element_by_xpath("//img[@alt='Details']").click()
-        wd.find_element_by_name("modifiy").click()
+        wd.find_element_by_name("modify").click()
         wd.find_element_by_name("company").click()
         wd.find_element_by_name("company").clear()
         wd.find_element_by_name("update").click()
@@ -212,7 +213,7 @@ class ContactHelper:
                 all_phones = cells[5].text
                 all_emails = cells[4].text
                 self.contact_cache.append(Contact(first_name=firstname, last_name=lastname, id=id,
-                                                  all_phones_from_home_page= all_phones, contact_address=address,
+                                                  all_phones_from_home_page=all_phones, contact_address=address,
                                                   all_emails_from_home_page=all_emails))
         return list(self.contact_cache)
 
@@ -239,7 +240,7 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_elements_by_xpath("//img[@alt='Details']")[index].click()
 
-    def get_contact_from_view_page(self,index):
+    def get_contact_from_view_page(self, index):
         wd = self.app.wd
         self.return_to_home()
         self.open_contact_viev_by_index2(index)
@@ -250,5 +251,3 @@ class ContactHelper:
         phone_2 = re.search("P: (.*)", text).group(1)
         return Contact(home_contact=home_contact,
                        mobile_phone=mobile_phone, work_phone=work_phone, phone_2=phone_2)
-
-

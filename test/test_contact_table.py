@@ -10,7 +10,8 @@ def test_print_details(app):
 
 
 def test_details_modify(app):
-    app.contact.update_first_contact(Contact(first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk", last_name="hvbjbkjnlknm",
+    app.contact.update_first_contact(
+        Contact(first_name="trrdytfyuhgjkbhk", middle_name="gvjhbkjbnjknlk", last_name="hvbjbkjnlknm",
                 nick="gfuhbkhjbkljnlm", title_contact="hfuygujhkl",
                 company_contact="giuhjnllk", contact_address="uyfuyighklnmlknkjbn",
                 home_contact="gfhgghjkh",
