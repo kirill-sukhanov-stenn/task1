@@ -165,17 +165,17 @@ class ContactHelper:
         wd.find_element_by_xpath("//img[@alt='Details']").click()
         self.return_to_home()
 
-    def test_print_details(self, target):
+    def test_print_details(self):
         wd = self.app.wd
         wd.find_element_by_xpath("//img[@alt='Details']").click()
         wd.find_element_by_name("print").click()
-        wd.get(target["base_url"])
+        wd.get(self.app.base_url)
         self.return_to_home()
 
-    def test_vCard(self, target):
+    def test_vCard(self):
         wd = self.app.wd
         wd.find_element_by_xpath("//img[@alt='vCard']").click()
-        wd.get(target["base_url"])
+        wd.get(self.app.base_url)
         self.return_to_home()
 
     def test_details_modify(self):
