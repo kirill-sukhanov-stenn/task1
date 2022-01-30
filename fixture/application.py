@@ -14,7 +14,7 @@ class Application:
             self.wd = webdriver.Ie()
         else:
             raise ValueError("Unrecognized browser %s" % browser)
-        self.wd.implicitly_wait(0)
+        self.wd.implicitly_wait(2)
         self.session = SessionHelper(self)
         self.contact = ContactHelper(self)
         self.group = GroupHelper(self)
