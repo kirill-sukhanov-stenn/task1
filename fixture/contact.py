@@ -3,6 +3,7 @@ from model.contact import Contact
 import re
 
 
+
 class ContactHelper:
 
     def __init__(self, app):
@@ -280,3 +281,22 @@ class ContactHelper:
         phone_2 = re.search("P: (.*)", text).group(1)
         return Contact(home_contact=home_contact,
                        mobile_phone=mobile_phone, work_phone=work_phone, phone_2=phone_2)
+
+    def add_contact_in_group(self, id, name):
+        wd = self.app.wd
+        self.return_to_home()
+        wd.find_element_by_id(id).click()
+        wd.find_element_by_name("to_group").click()
+        wd.find_element_by_name("to_group").send_keys(name)
+        wd.find_element_by_name("add").click()
+        wd.find_element_by_link_text("home").click()
+
+    def delete_contact_in_group(self, id, name):
+        wd = self.app.wd
+        self.return_to_home()
+        wd.find_element_by_name("group").click()
+        wd.find_element_by_name("group").send_keys(name)
+        wd.find_element_by_id(id).click()
+        wd.find_element_by_name("remove").click()
+        self.return_to_home()
+
