@@ -30,7 +30,7 @@ class DbFixture:
             cursor.execute("select id, group_id from address_in_groups where deprecated='0000-00-00 00:00:00'")
             for row in cursor:
                 (id, group_id) = row
-                list.append(Group(id=str(group_id)) and Contact(id=str(id)))
+                list.append(Contact(id=str(id))) and (Group(id=str(group_id)))
         finally:
             cursor.close()
         return list
