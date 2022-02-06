@@ -1,6 +1,7 @@
 from selenium.webdriver.support.select import Select
 from model.contact import Contact
 import re
+import time
 
 
 
@@ -288,16 +289,21 @@ class ContactHelper:
         self.return_to_home()
         wd.find_element_by_id(id).click()
         wd.find_element_by_name("to_group").click()
+        time.sleep(2)
         wd.find_element_by_name("to_group").send_keys(name)
+        time.sleep(2)
         wd.find_element_by_name("add").click()
-        wd.find_element_by_link_text("home").click()
+        self.return_to_home()
 
     def delete_contact_in_group(self, id, name):
         wd = self.app.wd
         self.return_to_home()
         wd.find_element_by_name("group").click()
         wd.find_element_by_name("group").send_keys(name)
+        time.sleep(2)
         wd.find_element_by_id(id).click()
+        time.sleep(2)
         wd.find_element_by_name("remove").click()
+        time.sleep(2)
         self.return_to_home()
 

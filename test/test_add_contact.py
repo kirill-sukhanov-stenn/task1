@@ -14,29 +14,26 @@ def test_task1_add_contact(app, db, json_contacts):
     assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
 
 
-def test_add_contact_in_group(app, orm, db):
-
+def test_add_contact_in_group(app, orm, db, json_contacts):
+    contact = json_contacts
     if len(db.get_contact_list()) == 0:
-        app.contact.create(Contact(first_name="test", middle_name="", last_name="",
-                                   nick="", title_contact="",
-                                   company_contact="", contact_address="",
-                                   home_contact="",
-                                   mobile_phone="", work_phone="", fax_phone="",
-                                   email_com="", email2="",
-                                   home_page="",
-                                   b_day="12", b_month="October",
-                                   b_year="1989", a_day="12", a_month="March", a_year="1999", address_2="",
-                                   phone_2=",", notes_contact=""))
+        app.contact.create(contact)
     if len(db.get_group_list()) == 0:
         app.group.create(Group(name="test"))
     contacts = db.get_contact_list()
-    contact = random.choice(contacts)
+    contact0 = random.choice(contacts)
     groups = db.get_group_list()
     group = random.choice(groups)
-    app.contact.add_contact_in_group(contact.id, group.name)
+    if contact0.id not in group.name:
+        app.contact.add_contact_in_group(contact0.id, group.name)
+    else:
+        app.contact.delete_contact_in_group(contact0.id, group.name)
+        app.contact.add_contact_in_group(contact0.id, group.name)
     contacts_in_group = orm.get_contacts_in_group(group)
     print(contacts_in_group)
+
     assert contact in contacts_in_group
+
 
 
 
