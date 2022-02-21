@@ -2,6 +2,7 @@ from model.group import Group
 import pytest
 
 
+
 def test_add_group(app, db, check_ui, json_groups):
     group = json_groups
     with pytest.allure.step('Given a group list'):
