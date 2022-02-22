@@ -1,0 +1,10 @@
+<testsuites>
+<testsuite name="pytest" errors="0" failures="0" skipped="0" tests="6" time="14.425" timestamp="2022-02-22T13:31:00.744401" hostname="LAPTOP-PV21IIRB">
+<testcase classname="test.test_add_group" name="test_add_group[None: ; ; ]" time="8.986"/>
+<testcase classname="test.test_add_group" name="test_add_group[None:nameWv;headerCv9sfCETqwvI;footer9Sku8GSPuv7C9]" time="1.007"/>
+<testcase classname="test.test_add_group" name="test_add_group[None:namezuql7mfG4;headerbnQr7kfdL;footerRtBXHpCLlAadeOgOKP]" time="0.930"/>
+<testcase classname="test.test_add_group" name="test_add_group[None:nameZcWHpHU;headerwg462ONRkBkda30;footerDUIQmALTPsfi]" time="0.957"/>
+<testcase classname="test.test_add_group" name="test_add_group[None:namerTj;headerm75eo;footerPMrgZQfnh3Q2KkgIcV3]" time="0.962"/>
+<testcase classname="test.test_add_group" name="test_add_group[None:name;headercfANtUR;footerZ9GteHnZdq]" time="1.547"/>
+</testsuite>
+</testsuites>
